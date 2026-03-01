@@ -111,10 +111,10 @@ void onStart(ServiceInstance service) async {
     service.stopSelf();
   });
 
-  // 1. 위치 스트림 감시 (30m 이동 시)
+  // 1. 위치 스트림 감시
   const locationSettings = LocationSettings(
     accuracy: LocationAccuracy.high,
-    distanceFilter: 50,
+    distanceFilter: 100,
   );
 
   Geolocator.getPositionStream(locationSettings: locationSettings).listen((Position position) {
