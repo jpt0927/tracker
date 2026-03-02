@@ -112,9 +112,10 @@ void onStart(ServiceInstance service) async {
   });
 
   // 1. 위치 스트림 감시
-  const locationSettings = LocationSettings(
+  final locationSettings = AndroidSettings(
     accuracy: LocationAccuracy.high,
     distanceFilter: 100,
+    intervalDuration: const Duration(minutes: 1),
   );
 
   Geolocator.getPositionStream(locationSettings: locationSettings).listen((Position position) {
